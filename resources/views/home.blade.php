@@ -1070,7 +1070,7 @@ img { display: block; max-width: 100%; height: auto; }
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-content">
         <span class="hero-eyebrow scroll-fade">Sekolah Unggulan Berkarakter</span>
-        <h1 class="hero-title scroll-fade delay-1">Selamat Datang di <br><span class="text-accent">SMK SLB</span></h1>
+        <h1 class="hero-title scroll-fade delay-1">Selamat Datang di <br><span class="text-accent">SMK YPC</span></h1>
         <p class="hero-subtitle scroll-fade delay-2">Membangun Generasi Cerdas, Kompeten, dan Berkarakter Islami</p>
         <div class="hero-buttons scroll-fade delay-3">
             <a href="{{ route('profil.menu', 'visi-misi') }}" class="btn btn-accent">Visi & Misi</a>
