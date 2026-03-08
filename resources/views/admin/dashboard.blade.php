@@ -56,26 +56,45 @@
                             
                             $startAngle = 0;
                             $segments = [];
-                            foreach ($menuData as $menu) {
-                                $percentage = ($menu['count'] / $total) * 100;
-                                $angle = ($percentage / 100) * 360;
-                                $segments[] = [
-                                    'name' => $menu['name'],
-                                    'count' => $menu['count'],
-                                    'percentage' => round($percentage, 1),
-                                    'color' => $menu['color'],
-                                    'startAngle' => $startAngle,
-                                    'endAngle' => $startAngle + $angle
-                                ];
-                                $startAngle += $angle;
+
+                            if ($total > 0) {
+                                foreach ($menuData as $menu) {
+                                    $percentage = ($menu['count'] / $total) * 100;
+                                    $angle = ($percentage / 100) * 360;
+                                    $segments[] = [
+                                        'name' => $menu['name'],
+                                        'count' => $menu['count'],
+                                        'percentage' => round($percentage, 1),
+                                        'color' => $menu['color'],
+                                        'startAngle' => $startAngle,
+                                        'endAngle' => $startAngle + $angle
+                                    ];
+                                    $startAngle += $angle;
+                                }
+                            } else {
+                                // Default segments kalau data kosong
+                                foreach ($menuData as $menu) {
+                                    $segments[] = [
+                                        'name' => $menu['name'],
+                                        'count' => 0,
+                                        'percentage' => 0,
+                                        'color' => $menu['color'],
+                                        'startAngle' => 0,
+                                        'endAngle' => 0
+                                    ];
+                                }
                             }
                         @endphp
                         
+                        @if($total > 0)
                         <div class="pie-chart" style="background: conic-gradient(
                             @foreach($segments as $index => $seg)
                                 {{ $seg['color'] }} {{ $seg['startAngle'] }}deg {{ $seg['endAngle'] }}deg{{ $index < count($segments) - 1 ? ',' : '' }}
                             @endforeach
                         );"></div>
+                        @else
+                        <div class="pie-chart" style="background: #e0e0e0;"></div>
+                        @endif
                         
                         <div class="pie-center">
                             <span class="pie-total">{{ $total }}</span>
@@ -578,5 +597,3 @@
     </style>
 
 @endsection
-
-
