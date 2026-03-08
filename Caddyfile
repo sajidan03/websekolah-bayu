@@ -8,4 +8,4 @@ root * /app/public
 
 encode zstd br gzip
 
-php_serverit 
+php_server
