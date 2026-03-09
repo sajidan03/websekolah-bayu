@@ -509,7 +509,7 @@
 
     {{-- FOOTER --}}
     <div class="sambutan-footer">
-        <p class="footer-text">{{ config('app.school_name', 'SMK SLB') }} &bull; Website Resmi Sekolah</p>
+        <p class="footer-text">{{ config('app.school_name', 'SMK YPC') }} &bull; Website Resmi Sekolah</p>
     </div>
 
 </div>
